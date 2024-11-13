@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form events using jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div").focusin(function(){
+                $(this).css("background-color","#ffffcc");
+            });
+            $("div").focusout(function(){
+                $(this).css("background-color","#ffffff");
+            });
+            $("input").focus(function(){
+                $(this).css("background-color","#ddffff");
+            });
+            $("input").blur(function(){
+                $(this).css("background-color","#ffddff");
+            });
+
+            // $("#name").change(function(){
+            //     $(this).text($(this).val());
+            //     if($("#name").val() == "")
+            //     {
+            //         $("input[type='submit']").mouseover(function(){
+            //             $(this).animate({left: "250px"})
+            //             .animate({left:'400px'});
+            //         });
+            //     }
+            // });
+
+        
+
+            $("form").submit(function(){
+                alert("The values are "+ $("#name").val() + $("#email").val() + $("#password").val());
+            });
+
+            $("button").click(function(){
+                $("#anim").animate({left : "250px", opacity : 0.8},3000)
+                    .animate({top : "250px", opacity : 0.5},3000)
+                    .animate({left : "0px", opacity : 0.8},3000)
+                    .animate({top : "190px", opacity : 1},3000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <form action="">
+        <div class="form" style="margin: auto; text-align: center; border: 1px solid; height: 100px;padding: 20px;">
+            <label for="name">Name: </label><input type="text" name="name" id="name" placeholder="Your name"><br>
+            <label for="name">email: <input type="text" name="email" id="email"><br>
+            <label for="name">password: <input type="text" name="password" id="password"><br>
+            <input type="submit" value="Submit" style="position: absolute;">
+        </div>
+    </form>
+    <br><button>Click me to animate</button>
+    <div style="height: 50px; width: 50px; background: blueviolet; position: absolute;" id="anim">
+    </div>
+</body>
+</html>
